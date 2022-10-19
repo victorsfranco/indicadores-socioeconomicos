@@ -20,15 +20,20 @@ async function getObj() {
 
    data.map((item) => {
       try {
+         
          const div = document.createElement('div');
          const title = document.createElement('h3');
-         const number = document.createElement('p');
+         const indicatorValue = document.createElement('p');
+
+         div.setAttribute('class', 'indicator-box');
+         title.setAttribute('class', 'indicator-title');
+         indicatorValue.setAttribute('class', 'indicator-value');
 
          title.innerText = item.indicador;
-         number.innerHTML = `${item.series[0].serie[0][year] * item.unidade.multiplicador} ${item.unidade.id}`
+         indicatorValue.innerHTML = `${item.series[0].serie[0][year] * item.unidade.multiplicador} ${item.unidade.id}`
 
          div.appendChild(title);
-         div.appendChild(number);
+         div.appendChild(indicatorValue);
 
          searchResults.appendChild(div);
          

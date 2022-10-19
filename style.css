@@ -10,9 +10,11 @@ body {
    font-family: 'Roboto';
 }
 
+/* ----- Header ----- */
+
 #header {
    font-family: 'Inter';
-   padding: 3rem;
+   padding: 3rem 2rem;
    background-color: #ffffff;
    border: 1px solid #D7D8DA;
    border-radius: 0.25rem;
@@ -25,6 +27,8 @@ body {
    background-color: #ffffff;
 
 }
+
+/* ----- Request Parameters----- */
 
 #search-parameters {
    font-family: 'Inter';
@@ -69,4 +73,9 @@ body {
    transition: 0.25s;
 }
 
-.select-box {}
+/* ----- Indicators View ----- */
+
+.indicator-box {
+   margin: 1rem 2rem;
+   border-bottom: 1px solid #D7D8DA;
+}
