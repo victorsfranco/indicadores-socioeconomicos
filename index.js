@@ -1,12 +1,15 @@
-const year = '2016';
-
 let country = document.querySelector('#country-select').value;
 
 document.querySelector('#country-select').addEventListener('change', (event) => {
    country = event.target.value;  
 } )
 
-console.log(country);
+let year = document.querySelector('#year-select').value;
+
+document.querySelector('#year-select').addEventListener('change', (event) => {
+   year = event.target.value;
+})
+
 
 const searchResults = document.querySelector('#search-results');
 
