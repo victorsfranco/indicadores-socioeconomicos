@@ -83,3 +83,17 @@ body {
    border: 1px solid #2C549C;
    border-radius: 3px;
 }
+
+.result-header {
+   display: flex;
+   justify-content: space-between;
+   font-size: 20px;
+   padding-bottom: 0.75rem;
+   margin: 1rem 1rem;
+   border-bottom: 1px solid #2C549C;
+
+}
+
+.result-title {}
+
+.toggle-result-view-button {}
