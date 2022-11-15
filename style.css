@@ -93,3 +93,12 @@ body {
    border-bottom: 1px solid #2C549C;
 
 }
+
+.toggle-result-view-button {
+   cursor: pointer;
+   background-color: #FFFFFF;
+   color: #2C549C;
+   border: none;
+   font-size: 30px;
+
+}

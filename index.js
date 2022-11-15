@@ -49,8 +49,10 @@ async function getObj() {
 
       if (indicatorsContainer.style.display != 'none') {
          indicatorsContainer.style.display = 'none';
+         toggleResultView.innerText = 'v';
       } else {
          indicatorsContainer.style.display = 'block';
+         toggleResultView.innerText = '-';
       }
 
    }
