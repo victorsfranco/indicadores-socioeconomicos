@@ -30,9 +30,13 @@ async function getObj() {
 
    const resultTitle = document.createElement('h3');
    resultTitle.setAttribute('class', 'result-title');
+
    resultHeader.appendChild(resultTitle);
 
    resultTitle.innerText = `${countryName} - ${year}`;
+
+   const indicatorsContainer = document.createElement('div');
+   indicatorsContainer.setAttribute('class', 'indicators-container');
 
    const toggleResultView = document.createElement('button');
    toggleResultView.setAttribute('class', 'toggle-result-view-button');
@@ -40,9 +44,14 @@ async function getObj() {
    toggleResultView.innerText = '-';
 
    toggleResultView.onclick = function toggleView() {
-      let indicatorBox = document.querySelectorAll('.indicator')
-      console.log(indicatorBox);
-      indicatorBox.style.display = 'none';
+      let indicatorsContainer = document.querySelector('.indicators-container')
+      console.log(indicatorsContainer);
+
+      if (indicatorsContainer.style.display != 'none') {
+         indicatorsContainer.style.display = 'none';
+      } else {
+         indicatorsContainer.style.display = 'block';
+      }
 
    }
 
@@ -68,7 +77,8 @@ async function getObj() {
          indicator.appendChild(indicatorTitle);
          indicator.appendChild(indicatorValue);
 
-         resultsContainer.appendChild(indicator);
+         indicatorsContainer.appendChild(indicator);
+         resultsContainer.appendChild(indicatorsContainer);
 
       }
       catch (error) {
