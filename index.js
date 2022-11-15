@@ -2,7 +2,7 @@ let country = document.querySelector('#country-select').value;
 
 document.querySelector('#country-select').addEventListener('change', (event) => {
    country = event.target.value;
-} )
+})
 
 let countryName = document.querySelector('#country-select').options[document.querySelector('#country-select').selectedIndex].text;
 
@@ -20,13 +20,13 @@ const searchResults = document.querySelector('#search-results');
 
 async function getObj() {
 
-   const allResults = document.createElement('div');
-   allResults.setAttribute('id', 'all-results');
-   searchResults.appendChild(allResults);
+   const resultsContainer = document.createElement('div');
+   resultsContainer.setAttribute('id', 'results-container');
+   searchResults.appendChild(resultsContainer);
 
    const resultHeader = document.createElement('header');
    resultHeader.setAttribute('class', 'result-header');
-   allResults.appendChild(resultHeader);
+   resultsContainer.appendChild(resultHeader);
 
    const resultTitle = document.createElement('h3');
    resultTitle.setAttribute('class', 'result-title');
@@ -40,10 +40,10 @@ async function getObj() {
    toggleResultView.innerText = '-';
 
    toggleResultView.onclick = function toggleView() {
-      let indicatorBox = document.querySelectorAll('.indicator-box')
+      let indicatorBox = document.querySelectorAll('.indicator')
       console.log(indicatorBox);
       indicatorBox.style.display = 'none';
-      
+
    }
 
 
@@ -53,28 +53,28 @@ async function getObj() {
 
    data.map((item) => {
       try {
-         
-         const div = document.createElement('div');
+
+         const indicator = document.createElement('div');
          const indicatorTitle = document.createElement('h3');
          const indicatorValue = document.createElement('p');
 
-         div.setAttribute('class', 'indicator-box');
+         indicator.setAttribute('class', 'indicator');
          indicatorTitle.setAttribute('class', 'indicator-title');
          indicatorValue.setAttribute('class', 'indicator-value');
 
          indicatorTitle.innerText = item.indicador;
          indicatorValue.innerHTML = `${item.series[0].serie[0][year] * item.unidade.multiplicador} ${item.unidade.id}`
 
-         div.appendChild(indicatorTitle);
-         div.appendChild(indicatorValue);
+         indicator.appendChild(indicatorTitle);
+         indicator.appendChild(indicatorValue);
 
-         allResults.appendChild(div);
-         
+         resultsContainer.appendChild(indicator);
+
       }
       catch (error) {
          console.log(error);
       }
    })
 
-   
+
 }
