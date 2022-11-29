@@ -43,20 +43,18 @@ async function getObj() {
    resultHeader.appendChild(toggleResultView);
    toggleResultView.innerText = '-';
 
-   toggleResultView.onclick = function toggleView() {
-      let indicatorsContainer = document.querySelector('.indicators-container')
-      console.log(indicatorsContainer);
+   toggleResultView.onclick = (event) => {
 
-      if (indicatorsContainer.style.display != 'none') {
-         indicatorsContainer.style.display = 'none';
-         toggleResultView.innerText = 'v';
-      } else {
-         indicatorsContainer.style.display = 'block';
-         toggleResultView.innerText = '-';
-      }
-
+      resultHeader.nextSibling.classList.contains('hide-container')
+         ? ((i) => {
+            resultHeader.nextSibling.classList.remove(i);
+            event.target.innerHTML = '-';
+         })('hide-container')
+         : ((i) => {
+            resultHeader.nextSibling.classList.add(i);
+            event.target.innerHTML = '+';
+         })('hide-container')
    }
-
 
    const response = await fetch(`https://servicodados.ibge.gov.br/api/v1/paises/${country}/indicadores?periodo=${year}`);
 
